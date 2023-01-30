@@ -1,10 +1,10 @@
 {
-  "name": "plentymarkets/ebay-digital-signature-php-sdk-forked",
-  "description": "An SDK for using eBay's APIs that require a digital signature",
+  "name": "plentymarkets/ebay-digital-signature-php-sdk",
+  "description": "An SDK for using eBay's APIs that require a digital signature Forked",
   "license": "Apache-2.0",
   "type": "library",
   "keywords": ["digital signature","API","security","cryptography"],
-  "homepage": "https://github.com/eBay/digital-signature-php-sdk",
+  "homepage": "https://github.com/plentymarkets/ebay-digital-signature-php-sdk",
   "require": {
     "php": ">=7.4",
     "ext-json": "*",
