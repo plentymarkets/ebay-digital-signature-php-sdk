@@ -9,8 +9,8 @@ class Signature {
     private SignatureConfig $signatureConfig;
     private SignatureService $signatureService;
 
-    public function __construct(string $configPath) {
-        $this->loadSignatureConfig($configPath);
+    public function __construct(string $config) {
+        $this->loadSignatureConfig($config);
         $this->signatureService = new SignatureService();
     }
 
@@ -39,16 +39,14 @@ class Signature {
     /**
      * Load config value into SignatureConfig Object
      *
-     * @param string $configPath config path
+     * @param string $config config
      */
-    private function loadSignatureConfig(string $configPath): void {
-        $json = file_get_contents($configPath);
-        $jsonDecodedObj = json_decode($json, false);
+    private function loadSignatureConfig(array $config): void {
+        $jsonDecodedObj = json_decode($config, false);
 
         $mapper = new ModelMapper();
         $this->signatureConfig = new SignatureConfig();
         $mapper->map($jsonDecodedObj, $this->signatureConfig);
-
         if (is_null($this->signatureConfig->privateKeyStr) && !is_null($this->signatureConfig->privateKey)) {
             $this->signatureConfig->privateKeyStr = file_get_contents($this->signatureConfig->privateKey);
         }
