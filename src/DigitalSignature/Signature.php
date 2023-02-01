@@ -39,9 +39,9 @@ class Signature {
     /**
      * Load config value into SignatureConfig Object
      *
-     * @param string $config config
+     * @param string $config
      */
-    private function loadSignatureConfig(array $config): void {
+    private function loadSignatureConfig(string $config): void {
         $jsonDecodedObj = json_decode($config, false);
 
         $mapper = new ModelMapper();
