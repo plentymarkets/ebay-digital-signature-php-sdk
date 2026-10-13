@@ -23,7 +23,7 @@ class Signature {
      * @param string|null $body body
      * @return array All headers including the initially transmitted
      */
-    public function generateSignatureHeaders(array $headers, string $endpoint, string $method, string $body = null): array {
+    public function generateSignatureHeaders(array $headers, string $endpoint, string $method, ?string $body = null): array {
         if (!is_null($body)) {
             $headers["Content-Digest"] = $this->signatureService->generateContentDigest($body, $this->signatureConfig);
         }
